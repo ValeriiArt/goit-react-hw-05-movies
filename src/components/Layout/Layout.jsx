@@ -1,4 +1,6 @@
-import { NavLink, Outlet} from "react-router-dom";
+
+import { Suspense } from "react";
+import { NavLink, Outlet } from "react-router-dom";
 import s from './Layout.module.css'
 
 
@@ -14,8 +16,10 @@ const Layout = () => {
             </nav>
         </header>
             <main className={s.container}>
-            {/* <button onClick={goBack}>Go Back</button> */}
-            <Outlet />
+                {/* <button onClick={goBack}>Go Back</button> */}
+                <Suspense>
+                    <Outlet />
+                </Suspense>
         </main>
        </>
   
