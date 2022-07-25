@@ -1,24 +1,21 @@
 import { useState } from "react";
 import s from './SearchForm.module.css'
-import { toast } from "react-toastify";
 
-
-export default function Searchbar({onSubmit}){
-    const [searchInputText, setSearchInputText] = useState('');
+export default function SearchForm({onSubmit}){
+    const [query, setQuery] = useState('');
 
     const handelSearchChange = e => {
-        setSearchInputText(e.currentTarget.value.toLowerCase());
-
+        setQuery(e.currentTarget.value.toLowerCase());
     };
 
     const handelSubmit = e => {
         e.preventDefault();
-        if (searchInputText.trim() === '') {
-            toast.error('🦄 Wow so easy!');
+        if (query.trim() === '') {
+            alert('🦄 Boolshit!');
             return;
         }
-        onSubmit(searchInputText);
-        setSearchInputText('');
+        onSubmit(query);
+        setQuery('');
     };
 
     return (
@@ -29,7 +26,6 @@ export default function Searchbar({onSubmit}){
                     <button type="submit" className={s.button}>
                         <span className={s.buttonLabel}>Search</span>
                     </button>
-
                 <input
                     className={s.input}
                     type="text"
@@ -37,7 +33,7 @@ export default function Searchbar({onSubmit}){
                     autoFocus
                     placeholder="Search..."
                     name="search"
-                    value={searchInputText}
+                    value={query}
                     onChange={handelSearchChange}
                 />
             </form>

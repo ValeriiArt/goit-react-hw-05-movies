@@ -1,8 +1,10 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet} from "react-router-dom";
 import s from './Layout.module.css'
 
 
 const Layout = () => {
+    // const navigate = useNavigate();
+    // const goBack = () => navigate(-1);
     return (
        <>
         <header className={s.header}>
@@ -12,6 +14,7 @@ const Layout = () => {
             </nav>
         </header>
             <main className={s.container}>
+            {/* <button onClick={goBack}>Go Back</button> */}
             <Outlet />
         </main>
        </>

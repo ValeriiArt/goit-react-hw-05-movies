@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import  getTrendingDayMovie  from "service/fetchAPI";
+import  {getTrendingDayMovie}  from "service/fetchAPI";
 
 export default function useFetchMovie() {
     const [trendingMovie, setTrendingMovie] = useState([]);
