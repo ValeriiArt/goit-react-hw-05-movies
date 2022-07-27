@@ -3,10 +3,10 @@ import SearchForm from "components/SearchForm";
 import  {fetchMovieSearch}  from "service/fetchAPI";
 import { Link, useSearchParams, useLocation, Navigate } from "react-router-dom";
 import { MutatingDots } from 'react-loader-spinner';
-import s from './Movies.module.css'
+// import s from './Movies.module.css'
 
 const Movies = () => {
-  const [queryMovie, setQueryMovie] = useState('');
+  const [_queryMovie, setQueryMovie] = useState('');
   const [resultQuery, setResultQuery] = useState([])
   const [searchParams, setSearchParams] = useSearchParams();
   const [error, setError] = useState(null);
