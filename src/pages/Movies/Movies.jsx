@@ -6,7 +6,7 @@ import { MutatingDots } from 'react-loader-spinner';
 // import s from './Movies.module.css'
 
 const Movies = () => {
-  const [_queryMovie, setQueryMovie] = useState('');
+  const [ , setQueryMovie] = useState('');
   const [resultQuery, setResultQuery] = useState([])
   const [searchParams, setSearchParams] = useSearchParams();
   const [error, setError] = useState(null);
