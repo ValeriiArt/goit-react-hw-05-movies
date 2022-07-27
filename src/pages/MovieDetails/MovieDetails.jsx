@@ -1,14 +1,14 @@
 import useFetchMovieDetails from 'hooks/useFetchMovieDetails'
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, Navigate } from "react-router-dom";
 import { MutatingDots } from 'react-loader-spinner';
 import s from './MovieDetails.module.css'
 
 const MovieDetails = () => {
     const { error, isLoading, movie } = useFetchMovieDetails();
-    // const location = useLocation();
-    // const goBackLink = location?.state?.from ?? '/';
-    const navigate = useNavigate();
-    const goBack = () => navigate(-1);
+    const location = useLocation();
+    const goBackLink = location?.state?.from ?? '/';
+    // const navigate = useNavigate();
+    // const goBack = () => navigate(-1);
 
     const {
         title,
@@ -21,10 +21,10 @@ const MovieDetails = () => {
     
     return (
         <>
-            {/* <Link to={goBackLink}>Back</Link> */}
+            <Link to={goBackLink}>Back</Link>
             {isLoading && <MutatingDots />} 
-            {error && <div>{error}</div>} 
-            <button onClick={goBack}>Go Back</button>
+            {error && <Navigate to="/" replace />} 
+            {/* <button onClick={goBack}>Go Back</button> */}
                 <div className={s.filmsGallery}>
                     <div className={s.galleryItems}>
                         <div className={s.moviеItem}>
@@ -47,8 +47,8 @@ const MovieDetails = () => {
                     </div>
                 </div>
             
-            <Link to="cast">Cast</Link>
-            <Link to="reviews">Reviews</Link>  
+            <Link to="cast" state={location.state}>Cast</Link>
+            <Link to="reviews" state={location.state}>Reviews</Link>  
             <Outlet/>
         </>
     );

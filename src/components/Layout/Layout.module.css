@@ -23,10 +23,10 @@
     color: black;
     font-weight: 500;
 }
-/* .active {
-    color: white;
-    background-color: orangered;
-} */
+.activeLink {
+    color: #ffa500;
+    border-bottom: 1px solid #ffa500;
+}
 
 .container {
     width: 100%;
